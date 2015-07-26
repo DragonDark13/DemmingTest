@@ -1,0 +1,564 @@
+
+/*Стили очистки и миксины*/
+@import "mixin-reset-font.less";
+			 
+body {
+width: 100%;
+color:@Base-color2;
+font:14px /1.7em  Arial , sans-serif; 
+}
+
+
+#all{ 	 
+margin: 0 auto;
+width: @all_cite--width;       
+text-align:center;
+}
+
+	.central-block,
+	footer,
+	aside{
+	font-family: @theme_font1;
+	}
+
+
+/*Хедер---------------------------------------------------------------------*/
+
+
+	header{
+	.center-base-block;	
+	height: 107px;
+	padding-top: 35px;
+	}
+	
+		/*Логотип*/
+		.header_logo{
+		float:left;
+		font-family: "BauhausLightCTT";
+		font-weight:normal;
+		.my_font-size(48, 14);
+		.color2;
+		line-height: 0.8em;
+		text-shadow: rgba(0,0,0,0.4) 0px 0px 2px ;
+		}
+		
+		/* Телефон */
+		.header_tel{
+		float:right;
+		.box-sizing(content-box); 
+		height: 28px;
+		padding-left: 28px;	
+		
+		/*Иконка*/
+		background: url(../images/tel.png) left center no-repeat; 
+		
+			.tel_number{
+			.my_font-size(17, 14);	
+			line-height: 2.2em;
+			}
+		}
+	
+	
+  
+
+/*Конец Хедера--------------------------------------------------------------*/
+
+
+/*Меню*/
+	nav{ 
+	 height: 41px;
+	 background: #eeeeee;
+	
+		ul{
+		.center-base-block;	
+		display:block;
+		.clearfix;
+		height: 100%;
+		}
+		
+			li{ 
+			display:block;
+			float:left;
+			
+		/*	Ставим относительное позиционирование
+			для того что бі кнопка опускалась принажатии*/
+			position:relative;
+			height: 100%;
+			width: 100% / 5;
+			.my_font-size(15, 14);
+			line-height: 1em;
+			
+				a{
+				display:block; 
+				height: 100%;
+				padding: 0px 74.4px;
+				padding-top: 15px;
+				
+			
+				text-decoration:none;
+				.color3;
+				}
+				
+				/*Ховер*/
+				&:hover{
+					background:@text-color2;
+						
+						a{
+						.color1;
+						text-shadow: rgba(0,0,0,0.4) 0px 0px 2px ;
+						}
+					}
+				/*Клик	*/
+				&:active{
+				 top:2px;
+				 background: darken(@text-color2, 15%);
+				 }
+			
+			}
+			
+			/*Убирает правый и левый отступы соответственно у крайнего
+			правого и крайнего левого элемента*/
+			
+				li:first-child a{ padding-left:0px;}
+				
+				li:last-child a{
+				padding-right:0px; 
+				text-align:right;}
+	
+	}
+
+
+/*Хлебные крошки */
+.Breadcrumbs{
+.center-base-block;	
+display:block;	
+padding-top: 14px;
+padding-bottom: 18px;
+.clearfix;
+clear:both;
+
+
+	li{ 
+	display:block;
+	float:left;
+	font-family: @theme_font1;
+	.my_font-size(11, 14);
+	line-height: 1.2em;
+	padding-right: 16px;
+	}
+	
+	a,li{color:#696969;}
+	
+/*	Нижнее подчеркивание для элемента "Главная"*/
+	li:first-child{ /*text-decoration:underline;*/}
+
+}
+
+
+/*Правая панель----------------------------------------------------------------*/
+	aside{	
+	.my_width(@right-block--width, @all_cite--width);
+	float:right;
+	margin-right:@all_cite--side-space;	
+	
+		a
+		,time{
+		display:block;
+		text-align:left;
+		}
+	
+			p{
+			padding-top: 7px;
+			padding-bottom: 0px;
+			}
+		
+		article{ padding-top: 10px;}
+		
+	}
+		input[type="text"],
+		input[type="email"],
+		input[type="search"]
+		{
+		height: 25px;	
+		display:block;	
+		width: 100%;	
+		border: #cccccc solid 1px;
+		margin-top:18px;
+		font-family: @theme_font1;
+		.my_font-size(11, 14);
+		padding:  0px 10px;
+		
+					&:hover{box-shadow:  lighten(@Base-color2,  60%) 0px 0px 0px 2px inset, 
+					@text-color 0px 0px 0px 2px;
+					border-color:@text-color3;
+					}
+					
+					&:focus{box-shadow:   @text-color2 0px 0px 1px 1px; 	
+					border-color:@text-color2;
+					}
+					
+			
+		/*Если поле не валидно*/			
+		&:focus:invalid { 
+		box-shadow:0px 0px 1px 1px #F03438;
+		border-color: #F03438;
+		}
+		
+		/*Если поле валидно*/
+		&:required:valid { /* when a field is considered valid by the browser */
+		box-shadow:   @text-color2 0px 0px 1px 1px; 	
+		border-color:@text-color2;
+}
+		}
+		
+		/*Скругление*/
+		input{border-radius: 3px;}
+		
+		/*Поиск*/
+		.aside_search{
+			display:block;
+			margin-bottom:27px;}
+		
+		
+		input[type="search"]{
+		margin-top:24px;
+		background-image:url(../images/magnifter.png);
+		background-repeat:no-repeat;
+		background-position: 97% center;
+		
+		&:focus{ background-position: 120% center;}
+		}
+		
+		/*Плацехолдеры*/
+		input{
+			
+			&[placeholder]{color:#848484;}
+			&::-webkit-input-placeholder {color:#848484;}
+			&::-moz-placeholder       {color:#848484;}
+			&:-moz-placeholder       {color:#848484;}
+			&:-ms-input-placeholder  {color:#848484;}  
+				
+			&:focus::-webkit-input-placeholder { .my_opacity(0); 
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";
+			}
+			&:focus::-moz-placeholder          {.my_opacity(0); 
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";
+			}
+			&:focus:-moz-placeholder           {.my_opacity(0);
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";
+			}
+			&:focus:-ms-input-placeholder      {.my_opacity(0);
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)";
+			}
+			
+			/*Стили для выпадающих подсказок*/
+			
+			&:focus + .form_hint{ display:block; }
+		&:focus:invalid + .form_hint{color: #F03438; }
+		&:focus:valid + .form_hint{ color: #6BA61E; }
+		}
+		
+		/*Подсказка внизу формы*/	
+		
+		.form_hint{
+		  display:none;
+		  .my_font-size(12, 14);
+	     }
+		 
+		 
+		
+		h2{
+		.my_font-size(22, 14);		
+		line-height: 1.3em;
+		}
+		
+		time{ 
+		.my_font-size(11, 14);
+		}
+		
+		/*Новости*/
+		
+		input[type="button"],input[type="submit"]{
+		position:relative;	
+		margin-top: 24px;
+		float:right;
+		padding: 4.5px 11px;
+		.bg_button;
+		
+		&:hover{
+		background:@text-color2;
+		.color1;
+		}
+		
+		&:active{
+		top:2px;
+		background: darken(@text-color2, 15%);
+		box-shadow: @text-color2 0px -1px 2px 2px;
+		box-shadow: rgba(45,168,220,0.5) 0px -1px 0px 3px;
+		}
+		
+		}
+		
+		/*Подписка*/
+		.aside_subscription{
+		clear:both;
+		padding-top: 42px;
+		border-bottom:none;
+		
+				input[type="submit"]{
+				margin-top: 28px;
+				background:@text-color2;
+				.color1;
+				
+				&:hover{
+				background:darken(@text-color2, 15%);
+				}
+				}
+		}
+
+/*Конец правой панели-----------------------------------------------------------*/
+
+
+/*Основной блок---------------------------------------------------------------------*/
+
+
+	.central-block{
+	.my_width(@central-block--width, @all_cite--width);
+	margin-left:@all_cite--side-space;	
+	.color2;
+	}
+	
+	/*Тематические блоки*/
+		article{
+		padding-bottom: 18px; 
+		border-bottom: #bebebe 1px dotted;
+		}
+	
+		/*Убирает нижнюю границу у первого элемента*/
+		article:first-child,
+		article:last-child{ border-bottom: none;}
+	
+	/*Заголовки*/
+	
+	        h6,h1, h3, h4, h2,{font-weight: normal;}
+			
+			h1, h3, h4, h2,{ 
+			text-align:left;
+			color: @heading-color;
+			}
+			
+			h1,h2, h3{ 
+			font-variant: small-caps;
+			}
+	
+			
+			h1{
+			.my_font-size(25.28, 14);
+			line-height: 2.4em;	
+			}
+			
+			h3{
+			.my_font-size(16.1, 14);
+			line-height: 2.1em;
+			}
+			
+			h4{
+			padding-top: 7.5px;	
+			.my_font-size(12, 14);	
+			text-transform: uppercase;
+			line-height: 4em;
+			.color3;
+			}
+			
+			/*Абзацы*/
+			
+			p{
+			padding-top: 10px;
+			padding-bottom: 13px;	
+			text-align:justify;
+			.my_font-size(12, 14);
+			line-height: 1.5em;
+			.color4;
+			.word-wrap;
+			}
+			
+	/*Контент*/
+	
+	/*Список про часы*/
+			.list_clock{
+			.my_font-size(12.5, 14);
+			text-align:left;
+			line-height: 2em;	
+			
+				li{
+				padding-bottom: 4.5px;
+
+					&:before{
+					content: "——";
+					display:inline-block;
+					padding-right: 17px;
+					}
+				}
+				
+			
+			}
+	
+	     /*Нумерованный список*/
+		 ol.list_clock {
+		.color4;
+		counter-reset: list1; /* Инициируем счетчик */
+		
+			li:before {
+			padding-right: 0px;
+			counter-increment: list1; /* Увеличиваем значение счетчика */
+			content: counter(list1) ") "; /* Выводим число */
+			}
+   
+			 }
+	
+			/*Блок с фотками*/
+			.galery-box{.clearfix;}
+			
+			/*Ширина одной картинки*/
+			@galery_img--width: 215px;
+			
+			/*Величина отступов ширинa блока - ширина картинок */
+			@galery_img--margin: (@central-block--width - (3*@galery_img--width))/4;
+			
+			/*Картинка*/
+				.galery_img{	
+				display:block;
+				float:left;
+				width: @galery_img--width;
+				height: 182px;
+				margin:@galery_img--margin;
+				
+				/*Убирает правый и левый отступы соответственно у крайнего
+				правого и крайнего левого элемента*/
+				
+				&:first-child{ margin-left:0px;}
+				&:last-child{margin-right:0px;}
+				}
+	
+	
+	/* Таблица*/
+	
+			table{
+			width: 100%;
+			margin-bottom: 15px;
+			.my_font-size(11, 14);
+			}
+			
+					th{font-weight:normal;}
+					
+					tr>*{ padding: 5.5px 0px;}
+				
+					tr>*:nth-child(1),
+					tr>*:nth-child(4),
+					tr>*:nth-child(3){
+					.color4;
+						}
+						
+						tr:first-child>*{ 
+					padding-top: 0px;
+					color: #6A6A6A;
+					}
+	
+	/* Табы*/
+	
+			.article_Tabs{
+			margin-top: 15px;
+			
+				ul{
+				padding-bottom: 2px;
+				border-bottom:@text-color2 1px solid;}
+				
+					li{ .my_font-size(12, 14);	}	
+			
+					/*Неактивный таб*/
+						.ui-tabs-nav .ui-state-default a{
+							color:@Base-color2;
+							padding: 8px 17px; }
+							
+					.ui-state-default {
+					.bg_button;
+					border-radius: 4px 4px 0 0; 
+					
+					&:hover{
+					.bg_button--hover;
+				   box-shadow: @bg_button--color 0px 0px 3px 2px inset;
+					 }
+					}	
+					
+					
+						
+					/*Активный таб*/
+					.ui-tabs-nav .ui-tabs-active a{ 
+					.color1;
+					 padding: 8px 15px; }
+					 
+					.ui-tabs-active,.ui-tabs-active:hover {
+					background:@text-color2;
+					box-shadow: none;
+					}
+			}
+
+
+
+/*Конец основного блока-----------------------------------------------------------*/
+
+
+/*Футер---------------------------------------------------------------------------*/
+
+	footer{
+	.center-base-block;
+	.clearfix;
+	clear:both;
+	
+	margin-top: 50px;
+	padding-top: 20px;
+	border-top: #bebebe 1px dotted;
+	padding-bottom :22px;
+	}
+	
+		.footer_copyright{
+		float:left;
+		padding-top: 3px;
+		.my_font-size(11, 14);
+		  color: #696969;
+		}
+		
+		.footer_social{
+		.clearfix;
+		float:right;
+		height: 31px;
+		
+			a{
+			display:block;
+			float:left;
+			height: 31px;
+			width: 32px;
+			margin-left: 2px;
+			border-radius: 50%;
+			background-image:url(../images/sprites.png);
+			background-repeat:no-repeat;
+			}
+			
+			/*skype*/
+			a:nth-child(1){
+				 background-position:-0px -93px;
+			  &:hover{background-position:-0px -62px;}
+			 }
+			 
+			 /*fb*/
+			a:nth-child(2){ 
+			background-position:-0px -31px;
+			&:hover{background-position:-0px -0px;}
+			 }
+			
+			/*twitter*/
+			a:nth-child(3){ background-position:0px -155px;
+			&:hover{background-position:-0px -124px;}
+			 }
+			
+	    }

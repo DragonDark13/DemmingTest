@@ -1,0 +1,206 @@
+/* LESS Document */
+
+
+/* ______________Миксины__________________________________________________________________________ */
+
+/*Переходы---------------------------------------------*/
+.transition(@time){
+-ms-transition:  all @time ease-in-out 0s;
+-webkit-transition:  all @time ease-in-out 0s;
+-moz-transition:  all @time ease-in-out 0s;
+ transition:  all @time ease-in-out 0s;
+}
+/*Боксовая модель---------------------------------------------*/
+
+.box-sizing(@box-model) { 
+-o-box-sizing:@box-model;
+-webkit-box-sizing: @box-model; // Safari <= 5 
+-moz-box-sizing: @box-model; // Firefox <= 19 
+box-sizing: @box-model; 
+}
+
+/* Перенос строки ---------------------------------------------*/
+ .word-wrap() {
+ -webkit-word-wrap:  break-word;
+ -ms-word-wrap:  break-word;
+word-wrap: break-word;}
+
+/* Прозрачность  ---------------------------------------------*/			
+ .my_opacity(@opacity)
+ { 
+-ms-opacity:@opacity;
+-moz-opacity:@opacity;
+-webkit-opacity:@opacity;
+ opacity:@opacity;}		
+
+/* Рассчет ширины в процентах , записывать значен в px на выходе проценты   
+@this_width ширина элемента (px),
+@parent_width ширина родительского элемента (px)
+---------------------------------------------*/	
+.my_width(@this_width, @parent_width){
+  width: (@this_width / @parent_width) * 100% ;
+} 
+/* Рассчет размера шрифта в процентах относително
+ родительского, записывать значен в px, на выходе проценты   
+@this_font-size размер шрифта элемента(px),
+@parent_font-size размер шрифта родительского элемента(px)
+---------------------------------------------*/	
+
+ .my_font-size(@this_font-size, @parent_font-size){
+  font-size: (@this_font-size / @parent_font-size) * 100% ;
+}	
+
+.clearfix(){
+
+&:after,
+&:before {
+    content: "";
+    display: table;
+    clear: both;
+}}
+
+/*Стиль для больших блоков страницы*/
+.center-base-block(){
+margin: 0 auto; 
+width:@content-area--width;
+}
+
+/*
+Базовые цвета
+---------------------------------------------*/	
+
+@Base-color2: #000;
+@text-color: #fff;
+.color1(){ color: @text-color;}
+
+/*Тематический цвет страницы (текст, линии)*/
+@text-color2:  #2DA8DC;
+.color2(){ color: @text-color2;}
+
+/*Цвет текста у заголовков 4 ур, таблиц, табов, кнопок, меню*/
+@text-color3: #333; 
+.color3(){ color: @text-color3;}
+
+
+/*Цвет для абзацев списка, содержимого таблиц*/
+@text-color4:#262626;
+.color4(){ color: @text-color4;} /*rgb(38, 38, 38)*/
+
+/*Цвет для заголовков*/
+@heading-color:#191919;
+
+/*Цвет для кнопок */
+@bg_button--color:#e4e4e4;
+.bg_button(){background:#e4e4e4;}
+
+/*Цвет для кнопок при наведении мыши*/
+.bg_button--hover(){background:#BCBCBC;}
+
+
+/*Базовые Шрифты-------------------------------------*/
+
+@theme_font1:Tahoma;
+
+
+/* Ширина псд макета ------------------*/
+@all_cite--width:1280px;
+
+/*Боковое пространство*/
+@all_cite--side-space:150px;
+
+/* Ширина  области содержимого ------------------*/
+@content-area--width: 980px;
+
+/*Ширина  основного блока------------------------*/
+@central-block--width: 696px;
+
+/*Ширина   правой панели ------------------------*/
+@right-block--width: 231px;
+
+/*СТИЛИ ОЧИСТКИ      RESET--------------------------------------------------------------------------*/
+
+*{		
+/*  Что бы не было полей и отступов по умолчанию	*/			
+outline: 0; 
+padding: 0; 
+margin: 0;
+ border: 0; 
+
+/* Устанавливает плавные переходы для всех элементов страницы	*/
+.transition(0.2s);
+} 
+
+/*:link, :visited { 
+  text-decoration: none; 
+} */
+
+/*Убирает значки у элементов списка*/
+ul, ol { 
+  list-style: none; 
+  } 
+
+a img, :link img, :visited img { 
+  border: none; 
+  } 
+  
+h1,h2,h3,h4,h5,h6 { font-size:1em; } 
+
+table { 
+  border-collapse: collapse; 
+  border-spacing: 0; 
+  } 
+ 
+
+/*Убирает подчеркивание и устанавливает единый цвет для всех ссылок*/
+ * a{text-decoration:underline; 
+  .color2;} 
+ 
+ * a:hover{
+	 color:darken(@text-color2, 25%);
+	 } 
+  
+ 
+ /*Убирает выставляемые браузером граници и outline ля элементов ссылок*/
+input,
+button,
+select,
+search,
+textarea
+{ 
+outline: none;
+border: 0px;
+
+&:focus, &:hover { 
+/*outline: none;
+border: 0px;*/
+	}
+}
+	
+	
+ /*Устанавливает ид курсора "указатель"*/
+html input[type="button"],
+input[type="reset"],
+input[type="submit"]
+{-webkit-appearance:button;cursor:pointer;}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}
+/* ______________Шаблоны__________________________________________________________________________ */
+
+
+
+/* Устанавливает боксовую модель для всех элементов 
+странички и делает их блочными ---------------------------------------------*/
+body *{
+.box-sizing(border-box);  
+}	
+
+/*ШРИФТЫ------------------------------------------------------------------------*/
+
+@font-face {
+font-family: "BauhausLightCTT"; 
+src: url(../fonts/bauhaus/bauhaus.eot),
+url(../fonts/bauhaus/bauhaus.woff),
+url(../fonts/bauhaus/bauhaus.ttf);
+font-style:normal;
+font-weight:normal;
+}
